@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple RISC</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <h1>Simple RISC Assembler &amp; Simulator</h1>
+  <p class="subtitle">16-bit RISC ISA &mdash; assemble, run, and inspect execution in the browser.</p>
+</header>
+
+<main class="layout">
+  <section class="editor-pane">
+    <div class="pane-header">
+      <h2>Assembly source</h2>
+      <div class="pane-actions">
+        <button id="load-example" class="btn btn-ghost" type="button">Load example</button>
+        <button id="run-btn" class="btn btn-primary" type="button">Run</button>
+      </div>
+    </div>
+    <textarea id="source" spellcheck="false">{{ example }}</textarea>
+    <p class="hint">Ctrl/Cmd + Enter to run.</p>
+  </section>
+
+  <section class="results-pane">
+    <div id="error-banner" class="error-banner" hidden></div>
+
+    <details id="binary-section" class="panel" open>
+      <summary>Assembled binary <span id="binary-count" class="count-badge"></span></summary>
+      <pre id="binary-output" class="mono-block"></pre>
+    </details>
+
+    <details id="trace-section" class="panel" open>
+      <summary>Execution trace <span id="trace-count" class="count-badge"></span></summary>
+      <div class="table-scroll">
+        <table id="trace-table">
+          <thead>
+            <tr>
+              <th>PC</th><th>R0</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th><th>R5</th><th>R6</th><th>FLAGS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+
+    <details id="chart-section" class="panel">
+      <summary>Memory access trace</summary>
+      <div id="chart-legend" class="chart-legend"></div>
+      <div id="chart-container" class="chart-container"></div>
+    </details>
+
+    <details id="memory-section" class="panel">
+      <summary>Final memory dump (256 words)</summary>
+      <pre id="memory-output" class="mono-block"></pre>
+    </details>
+  </section>
+</main>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
