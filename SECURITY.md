@@ -1,21 +1,13 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+There are no tagged releases yet — only the latest commit on `main` is supported.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Reporting a vulnerability
 
-## Reporting a Vulnerability
+Please report security issues privately using GitHub's [private vulnerability reporting](https://github.com/beyondpratham/Assembler-Simulator/security/advisories/new) (Security tab → Report a vulnerability) instead of opening a public issue.
 
-Use this section to tell people how to report a vulnerability.
+## Scope
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+The web app (`invoke run`) is a local development tool meant to run on `localhost` only. It has no authentication and is not hardened for exposure on a public network — don't bind it to a public interface or deploy it as-is.
